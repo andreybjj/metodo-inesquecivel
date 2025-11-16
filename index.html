@@ -13,20 +13,44 @@
 
   <style>
     body { box-sizing: border-box; }
-    .gradient-bg { background: linear-gradient(135deg,#e91e63 0%,#ad1457 100%); }
+
+    /* HERO com fundo emocional (rosa + lilás + glow) */
+    .hero-section {
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255, 209, 232, 0.95) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(249, 197, 255, 0.9) 0, transparent 55%),
+        linear-gradient(135deg, #f72585 0%, #b5179e 40%, #7209b7 100%);
+      overflow: hidden;
+    }
+
+    /* brilho suave atrás do conteúdo */
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0, transparent 55%);
+      filter: blur(12px);
+    }
+
     .gradient-text {
       background: linear-gradient(135deg,#e91e63,#ad1457);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .card-hover { transition: .3s; }
     .card-hover:hover {
       transform: translateY(-6px) scale(1.01);
       box-shadow: 0 20px 40px rgba(233,30,99,.18);
     }
+
     .pulse-btn { animation: pulse 2s infinite; }
     @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);} }
+
     .fade-in { animation: fadeIn .8s ease-out; }
     @keyframes fadeIn { from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);} }
 
@@ -47,7 +71,6 @@
       background:#ef4444;transform:rotate(-5deg);
     }
 
-    /* small hover on big CTAs */
     .cta-main:hover {
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 18px 35px rgba(0,0,0,.25);
@@ -59,7 +82,10 @@
   <main class="min-h-full">
 
     <!-- HERO -->
-    <section class="gradient-bg text-white py-20 px-6 relative overflow-hidden">
+    <section class="hero-section text-white py-20 px-6">
+      <!-- glow emocional de fundo -->
+      <div class="hero-glow"></div>
+
       <div class="max-w-4xl mx-auto text-center relative z-10">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in">
           Ele te deixou… mas não significa que acabou.
@@ -84,27 +110,25 @@
         <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Você sente ele diferente?</h2>
 
         <div class="grid md:grid-cols-2 gap-8 mb-8">
-
           <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
             <h3 class="font-bold text-gray-800 mb-2">Ficou frio e distante</h3>
-            <p class="text-gray-600">Não demonstra mais carinho como antes</p>
+            <p class="text-gray-600">Não demonstra mais carinho como antes.</p>
           </div>
 
           <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
             <h3 class="font-bold text-gray-800 mb-2">Responde seco ou ignora</h3>
-            <p class="text-gray-600">As conversas não fluem mais naturalmente</p>
+            <p class="text-gray-600">As conversas não fluem mais naturalmente.</p>
           </div>
 
           <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
             <h3 class="font-bold text-gray-800 mb-2">Você tem medo de parecer desesperada</h3>
-            <p class="text-gray-600">Cada movimento seu parece errado</p>
+            <p class="text-gray-600">Cada movimento seu parece errado.</p>
           </div>
 
           <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
             <h3 class="font-bold text-gray-800 mb-2">Qualquer conversa vira briga</h3>
-            <p class="text-gray-600">A tensão está sempre no ar</p>
+            <p class="text-gray-600">A tensão está sempre no ar.</p>
           </div>
-
         </div>
 
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
@@ -122,13 +146,13 @@
         <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-8 rounded-2xl border border-pink-200 card-hover">
           <p class="text-xl text-gray-700 leading-relaxed">
             Quando você muda seu posicionamento, ele sente sua falta, volta a pensar em você e retoma o interesse.
-            O método te ensina exatamente como fazer isso.
+            O método te ensina exatamente como fazer isso passo a passo.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- O QUE RECEBE -->
+    <!-- O QUE VOCÊ RECEBE -->
     <section class="py-16 px-6 reveal">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12 gradient-text">O que você recebe</h2>
@@ -136,28 +160,28 @@
         <div class="grid md:grid-cols-2 gap-6">
 
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <h3 class="font-bold text-gray-800 mb-2">Guia principal</h3>
-            <p class="text-gray-600">Método completo passo a passo</p>
+            <h3 class="font-bold text-gray-800 mb-2">📘💖 Guia principal — Mulher que Ele Nunca Esquece</h3>
+            <p class="text-gray-600">Método completo, explicado de forma simples e direta.</p>
           </div>
 
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <h3 class="font-bold text-gray-800 mb-2">Mapa da Comunicação Irresistível</h3>
-            <p class="text-gray-600">Fale de forma magnética</p>
+            <h3 class="font-bold text-gray-800 mb-2">🗺️💬✨ Mapa da Comunicação Irresistível</h3>
+            <p class="text-gray-600">Como falar com ele de um jeito magnético, sem parecer carente.</p>
           </div>
 
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <h3 class="font-bold text-gray-800 mb-2">Silêncio Inteligente</h3>
-            <p class="text-gray-600">O poder do que não é dito</p>
+            <h3 class="font-bold text-gray-800 mb-2">🤫🧠 Silêncio Inteligente</h3>
+            <p class="text-gray-600">O poder do que você NÃO diz — e como isso faz ele te notar.</p>
           </div>
 
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <h3 class="font-bold text-gray-800 mb-2">Checklist do Reencontro</h3>
-            <p class="text-gray-600">Passo a passo para reconquistar</p>
+            <h3 class="font-bold text-gray-800 mb-2">📝❤️‍🔥 Checklist do Reencontro</h3>
+            <p class="text-gray-600">Passo a passo para agir quando ele voltar a te procurar.</p>
           </div>
 
           <div class="bg-pink-50 p-6 rounded-xl border-2 border-pink-200 card-hover md:col-span-2">
-            <h3 class="font-bold text-pink-600 mb-2">🎁 Bônus: Mensagens que despertam desejo</h3>
-            <p class="text-gray-600">Templates prontos para usar</p>
+            <h3 class="font-bold text-pink-600 mb-2">💋🔥📱 Bônus: Mensagens que despertam desejo</h3>
+            <p class="text-gray-600">Templates prontos para ativar curiosidade, emoção e desejo nele.</p>
           </div>
 
         </div>
@@ -172,7 +196,9 @@
           <p class="text-xl text-gray-700 mb-6">
             Baseado em psicologia masculina, gatilhos emocionais e posicionamento feminino de alto valor.
           </p>
-          <p class="text-lg text-gray-600">Mesmo se ele esfriou, sumiu ou está confuso.</p>
+          <p class="text-lg text-gray-600">
+            Mesmo se ele esfriou, sumiu ou disse que “não sabe mais o que sente”.
+          </p>
         </div>
       </div>
     </section>
@@ -186,22 +212,22 @@
 
           <div class="bg-green-50 p-6 rounded-xl border-green-200 card-hover">
             <h3 class="font-bold text-green-700 mb-1">Ele voltou a mandar mensagem</h3>
-            <p class="text-green-600">Retomou contato por iniciativa própria</p>
+            <p class="text-green-600">Retomou contato por iniciativa própria.</p>
           </div>
 
           <div class="bg-green-50 p-6 rounded-xl border-green-200 card-hover">
             <h3 class="font-bold text-green-700 mb-1">Mostrou ciúmes</h3>
-            <p class="text-green-600">Demonstrou que ainda se importa</p>
+            <p class="text-green-600">Você percebe que ainda existe interesse.</p>
           </div>
 
           <div class="bg-green-50 p-6 rounded-xl border-green-200 card-hover">
             <h3 class="font-bold text-green-700 mb-1">Chamou para conversar</h3>
-            <p class="text-green-600">Tomou iniciativa</p>
+            <p class="text-green-600">Ele se aproxima de novo para resolver.</p>
           </div>
 
           <div class="bg-green-50 p-6 rounded-xl border-green-200 card-hover">
             <h3 class="font-bold text-green-700 mb-1">Você se sente confiante</h3>
-            <p class="text-green-600">Autoestima renovada</p>
+            <p class="text-green-600">Autoestima renovada, independente do que ele faça.</p>
           </div>
 
         </div>
