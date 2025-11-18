@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="pt-BR" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Método da Mulher que Ele Nunca Esquece</title>
-<link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Tailwind -->
+  <!-- Favicon local -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -43,6 +45,7 @@
     .animate-pop {
       animation: popIn 0.8s ease-out forwards;
       opacity: 0;
+      transform: translateY(15px) scale(0.97);
     }
 
     @keyframes popIn {
@@ -99,12 +102,17 @@
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
+
+    /* Pop-up de saída */
+    .overlay-exit {
+      background: rgba(15, 23, 42, 0.85);
+    }
   </style>
 </head>
 
 <body class="h-full font-sans bg-gray-50">
 
-  <!-- HERO: DOR + PROMESSA -->
+  <!-- HERO -->
   <section class="gradient-hero text-white py-16 px-4 relative overflow-hidden">
     <div class="floating-hearts top-10 left-10 text-pink-200 text-2xl">💕</div>
     <div class="floating-hearts top-20 right-20 text-pink-200 text-xl" style="animation-delay: 1s;">💖</div>
@@ -112,47 +120,56 @@
 
     <div class="max-w-6xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Texto -->
         <div class="text-center lg:text-left">
-          <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-pop" style="animation-delay: 0.1s;">
-            <span class="text-sm font-medium">
-              ⚡ Método prático • Acesso imediato • Discreto
+          <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-4 animate-pop" style="animation-delay: 0.05s;">
+            <span class="text-xs sm:text-sm font-medium">
+              Se você sente que está perdendo ele, isso aqui é pra você.
             </span>
           </div>
 
-          <h1 id="main-headline" class="text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-pop" style="animation-delay: 0.2s;">
+          <p class="text-sm uppercase tracking-wide text-pink-100 mb-2 animate-pop" style="animation-delay: 0.1s;">
+            Quando uma mulher ama e é ignorada, a dor não é “só emocional”. É física.
+          </p>
+
+          <h1 id="main-headline" class="text-4xl lg:text-5xl font-bold mb-4 leading-tight animate-pop" style="animation-delay: 0.15s;">
             Ele esfriou, se afastou e você sente que perdeu o controle da situação?
           </h1>
 
-          <p id="hero-subtitle" class="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed animate-pop" style="animation-delay: 0.3s;">
+          <p id="hero-subtitle" class="text-lg lg:text-xl mb-6 opacity-95 leading-relaxed animate-pop" style="animation-delay: 0.2s;">
             O <strong>Método da Mulher que Ele Nunca Esquece</strong> foi criado para a mulher que está cansada de
             implorar por atenção, cansada de ser ignorada… e quer que <u>ele sinta falta, tome atitude e tenha medo de te perder</u>.
           </p>
 
-          <button
-            id="cta-button"
-            class="pulse-button bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-luxury hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-pop"
-            style="animation-delay: 0.4s;"
-          >
-            🔥 QUERO VOLTAR A SER A PRIORIDADE DELE
-          </button>
-        </div>
-
-        <!-- FOTO DO HERO (mulher.sorrindo.png) -->
-        <div class="text-center animate-pop" style="animation-delay: 0.5s;">
-          <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-luxury">
-            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-pink-200 shadow-luxury">
-              <img
-                src="mulher.sorrindo.png"
-                alt="Mulher confiante e irresistível"
-                class="w-full h-full object-cover"
-              >
-            </div>
-            <p class="text-lg mt-4 opacity-90">
-              De mulher insegura e ansiosa…<br>para mulher tranquila, valorizada e inesquecível.
+          <div class="space-y-3 animate-pop" style="animation-delay: 0.25s;">
+            <a id="hero-cta-link" href="#" class="inline-block">
+              <button
+                id="cta-button"
+                class="pulse-button bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-luxury hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                🔥 QUERO VOLTAR A SER A PRIORIDADE DELE
+              </button>
+            </a>
+            <p class="text-xs sm:text-sm opacity-90">
+              Você não tem nada a perder. Ele é que tem muito a perder se você finalmente aprender a ser inesquecível.
             </p>
           </div>
         </div>
 
+        <!-- FOTO HERO -->
+        <div class="text-center animate-pop" style="animation-delay: 0.3s;">
+          <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-luxury">
+            <div class="w-48 h-48 sm:w-64 sm:h-64 mx-auto rounded-full overflow-hidden border-4 border-pink-200 shadow-luxury bg-white">
+              <img
+                src="mulher.sorrindo.png"
+                alt="Mulher confiante e tranquila"
+                class="w-full h-full object-cover"
+              >
+            </div>
+            <p class="text-sm sm:text-lg mt-4 opacity-90">
+              De mulher insegura e ansiosa…<br>para mulher tranquila, valorizada e impossível de ser ignorada.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -160,37 +177,35 @@
   <!-- PARA QUEM É -->
   <section class="py-16 px-4 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4 animate-pop">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 animate-pop">
         Esse método NÃO é para qualquer mulher.
       </h2>
-      <p class="text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
-        Ele foi feito para você que está vivendo alguma dessas situações:
+      <p class="text-lg sm:text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
+        Ele é para você que está vivendo alguma dessas situações:
       </p>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
+        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.15s;">
           <div class="text-6xl mb-4">💔</div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Se sente trocada</h3>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Você se sente trocada</h3>
           <p class="text-gray-600">
-            Ele era presente, hoje parece outra pessoa: frio, distante, sempre “ocupado” e você se perguntando
-            onde foi que perdeu ele.
+            Antes ele era presente, carinhoso… hoje está frio, seco, responde quando quer e você sente que perdeu espaço na vida dele.
           </p>
         </div>
 
-        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.3s;">
+        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
           <div class="text-6xl mb-4">🧊</div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Você corre atrás</h3>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Você está sempre correndo atrás</h3>
           <p class="text-gray-600">
-            É sempre você que manda mensagem, puxa assunto, tenta resolver… e quanto mais tenta, mais ele se afasta.
+            É sempre você que manda mensagem, puxa assunto, pede atenção… e, quanto mais você tenta, mais ele se afasta.
           </p>
         </div>
 
-        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.4s;">
+        <div class="gradient-card p-8 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.25s;">
           <div class="text-6xl mb-4">😔</div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Vive em dúvida</h3>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Sua mente não te deixa em paz</h3>
           <p class="text-gray-600">
-            Fica olhando o WhatsApp, stalkeando redes, perde o sono pensando:
-            “Será que ele ainda sente algo por mim? Será que vai me esquecer?”
+            Você vive stalkeando, olhando o WhatsApp, se perguntando: “Será que ele ainda sente algo? Ou já me esqueceu?”.
           </p>
         </div>
       </div>
@@ -202,43 +217,45 @@
     <div class="max-w-6xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-4xl font-bold text-gray-800 mb-6 animate-pop">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 animate-pop">
             Não é falta de amor. É falta de estratégia emocional.
           </h2>
 
-          <p class="text-xl text-gray-600 mb-8 animate-pop" style="animation-delay: 0.1s;">
-            Quando uma mulher está machucada, ela costuma reagir do jeito que <strong>mais afasta</strong> um homem:
+          <p class="text-lg sm:text-xl text-gray-600 mb-8 animate-pop" style="animation-delay: 0.1s;">
+            Quando uma mulher está machucada, ansiosa e com medo de perder alguém, ela costuma reagir
+            do jeito que <strong>mais afasta</strong> um homem:
           </p>
 
           <div class="space-y-4">
-            <div class="flex items-center bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
+            <div class="flex items-start bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.15s;">
               <span class="text-2xl mr-4">❌</span>
               <span class="text-lg text-gray-700">
-                Manda textões explicando tudo o que sente, esperando que ele “entenda” e mude.
+                Envia textões enormes tentando explicar tudo o que sente, esperando que ele “entenda” e mude.
               </span>
             </div>
-            <div class="flex items-center bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.3s;">
+            <div class="flex items-start bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
               <span class="text-2xl mr-4">❌</span>
               <span class="text-lg text-gray-700">
-                Responde imediatamente, se humilha, aceita migalhas de atenção só para não perdê-lo.
+                Responde na hora, aceita migalhas de atenção, se humilha, se diminui… só para ele não ir embora de vez.
               </span>
             </div>
-            <div class="flex items-center bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.4s;">
+            <div class="flex items-start bg-white p-4 rounded-2xl shadow-soft animate-pop" style="animation-delay: 0.25s;">
               <span class="text-2xl mr-4">❌</span>
               <span class="text-lg text-gray-700">
-                Tenta “conversar sério” na pior hora, justamente quando ele está frio ou irritado.
+                Tenta “conversar sério” justamente quando ele está frio, irritado ou distante – e a conversa termina em briga ou silêncio.
               </span>
             </div>
           </div>
 
-          <p class="text-lg text-gray-700 mt-6 animate-pop" style="animation-delay: 0.5s;">
-            O resultado? Ele se afasta mais, você se sente pequena… e começa a acreditar que o problema é você.
-            <br><strong>Não é.</strong> Você só está usando a estratégia errada.
+          <p class="text-lg text-gray-700 mt-6 animate-pop" style="animation-delay: 0.3s;">
+            O resultado? Ele se fecha ainda mais, você se sente pequena, rejeitada, confusa… e começa a acreditar
+            que o problema é você.<br>
+            <strong>Não é.</strong> Ninguém nunca te ensinou a usar a estratégia certa.
           </p>
         </div>
 
         <!-- FOTO MULHER TRISTE -->
-        <div class="text-center animate-pop" style="animation-delay: 0.3s;">
+        <div class="text-center animate-pop" style="animation-delay: 0.2s;">
           <div class="bg-white rounded-3xl p-8 shadow-luxury">
             <div class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-soft">
               <img
@@ -248,7 +265,7 @@
               >
             </div>
             <p class="text-lg mt-4 text-gray-600">
-              Ela chorando com o celular na mão, esperando uma mensagem que nunca chega.
+              Ela só queria uma mensagem dele… mas todo dia era mais um silêncio doendo no peito.
             </p>
           </div>
         </div>
@@ -256,19 +273,19 @@
     </div>
   </section>
 
-  <!-- O MÉTODO -->
+  <!-- O MÉTODO / O QUE VOCÊ RECEBE -->
   <section class="py-16 px-4 bg-white">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4 animate-pop">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 animate-pop">
         O que você vai receber ao entrar no Método da Mulher que Ele Nunca Esquece:
       </h2>
-      <p class="text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
-        Um passo a passo para sair da posição de quem implora por atenção e voltar a ser a mulher
-        que ele teme perder.
+      <p class="text-lg sm:text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
+        Um passo a passo prático para sair da posição de quem implora por atenção
+        e voltar a ser a mulher que ele tem medo de perder.
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.15s;">
           <div class="text-5xl mb-4">📘</div>
           <h3 class="text-xl font-bold text-gray-800 mb-3">Guia Completo do Método</h3>
           <p class="text-gray-600">
@@ -276,63 +293,62 @@
           </p>
         </div>
 
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.25s;">
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.18s;">
           <div class="text-5xl mb-4">📲</div>
           <h3 class="text-xl font-bold text-gray-800 mb-3">Mensagens Estratégicas</h3>
           <p class="text-gray-600">
-            Scripts prontos para despertar curiosidade, saudade e desejo – sem parecer forçada.
+            Scripts prontos para despertar curiosidade, saudade e desejo – sem parecer forçada ou desesperada.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.21s;">
+          <div class="text-5xl mb-4">🧠</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Psicologia Masculina</h3>
+          <p class="text-gray-600">
+            Entenda como a cabeça dele funciona e por que certos comportamentos femininos acionam o “modo fuga”.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.24s;">
+          <div class="text-5xl mb-4">🎯</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Silêncio Inteligente</h3>
+          <p class="text-gray-600">
+            Como sumir da maneira certa e fazer ele sentir sua falta, sem joguinhos infantis e sem orgulho bobo.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.27s;">
+          <div class="text-5xl mb-4">💬</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Roteiro do Reencontro</h3>
+          <p class="text-gray-600">
+            O que dizer, o que evitar e como se posicionar quando ele reaparece, para não estragar tudo na primeira conversa.
           </p>
         </div>
 
         <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.3s;">
-          <div class="text-5xl mb-4">🧠</div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Psicologia Masculina</h3>
-          <p class="text-gray-600">
-            Entenda como a cabeça dele funciona e por que alguns comportamentos femininos acionam
-            o “modo fuga”.
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.35s;">
-          <div class="text-5xl mb-4">🎯</div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Silêncio Inteligente</h3>
-          <p class="text-gray-600">
-            Como sumir da maneira certa e fazer ele sentir a sua falta, sem parecer joguinho infantil.
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.4s;">
-          <div class="text-5xl mb-4">💬</div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Roteiro do Reencontro</h3>
-          <p class="text-gray-600">
-            O que dizer e o que evitar quando ele reaparece, para não estragar tudo na primeira conversa.
-          </p>
-        </div>
-
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.45s;">
           <div class="text-5xl mb-4">🎁</div>
           <h3 class="text-xl font-bold text-gray-800 mb-3">Bônus: Mensagens Irresistíveis</h3>
           <p class="text-gray-600">
-            Mensagens de desejo e conexão emocional para manter a chama acesa depois da reconquista.
+            Mensagens de desejo e conexão emocional para manter a chama acesa depois que ele voltar.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DEPOIMENTOS WHATSAPP (NOMES FICTÍCIOS) -->
+  <!-- DEPOIMENTOS WHATSAPP -->
   <section class="py-16 px-4 bg-gradient-to-br from-green-50 to-emerald-50">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4 animate-pop">
-        Como fica a conversa quando você começa a usar o método:
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 animate-pop">
+        Como a conversa muda quando você começa a usar o método:
       </h2>
-      <p class="text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
-        Saem as mensagens frias, entram as mensagens dele buscando você.
+      <p class="text-lg sm:text-xl text-gray-600 mb-12 animate-pop" style="animation-delay: 0.1s;">
+        Saem as respostas frias, entram as mensagens dele buscando você.
       </p>
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Lucas -->
-        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.2s;">
+        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.15s;">
           <div class="bg-gray-100 p-4 rounded-2xl mb-4">
             <div class="flex items-center mb-3">
               <div class="w-8 h-8 bg-gray-400 rounded-full mr-3"></div>
@@ -344,12 +360,12 @@
             </div>
           </div>
           <p class="text-sm text-gray-600 mt-2">
-            Depois de aplicar o silêncio inteligente e as mensagens estratégicas da Módulo 2.
+            Depois de 4 dias aplicando o silêncio inteligente do Módulo 2.
           </p>
         </div>
 
         <!-- Gabriel -->
-        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.25s;">
+        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.18s;">
           <div class="bg-gray-100 p-4 rounded-2xl mb-4">
             <div class="flex items-center mb-3">
               <div class="w-8 h-8 bg-gray-400 rounded-full mr-3"></div>
@@ -361,12 +377,12 @@
             </div>
           </div>
           <p class="text-sm text-gray-600 mt-2">
-            Quando ela parou de se explicar e começou a se posicionar com valor.
+            Quando ela parou de se explicar o tempo todo e começou a se posicionar com valor.
           </p>
         </div>
 
         <!-- Rafael -->
-        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.3s;">
+        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.21s;">
           <div class="bg-gray-100 p-4 rounded-2xl mb-4">
             <div class="flex items-center mb-3">
               <div class="w-8 h-8 bg-gray-400 rounded-full mr-3"></div>
@@ -378,12 +394,12 @@
             </div>
           </div>
           <p class="text-sm text-gray-600 mt-2">
-            Quando ela aplicou a sequência de mensagens que reativa a curiosidade dele.
+            Depois da sequência de mensagens que reativa a curiosidade emocional dele.
           </p>
         </div>
 
         <!-- Thiago -->
-        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.35s;">
+        <div class="bg-white p-6 rounded-3xl shadow-soft animate-pop" style="animation-delay: 0.24s;">
           <div class="bg-gray-100 p-4 rounded-2xl mb-4">
             <div class="flex items-center mb-3">
               <div class="w-8 h-8 bg-gray-400 rounded-full mr-3"></div>
@@ -408,10 +424,10 @@
       <div class="gold-seal w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-8 text-white text-4xl font-bold shadow-luxury animate-pop">
         7 DIAS
       </div>
-      <h2 class="text-4xl font-bold text-gray-800 mb-6 animate-pop" style="animation-delay: 0.1s;">
-        Você não precisa decidir baseada no medo. Teste sem risco.
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 animate-pop" style="animation-delay: 0.1s;">
+        Você não precisa decidir na dúvida. Pode testar sem risco.
       </h2>
-      <p class="text-xl text-gray-600 mb-8 animate-pop" style="animation-delay: 0.2s;">
+      <p class="text-lg sm:text-xl text-gray-600 mb-8 animate-pop" style="animation-delay: 0.2s;">
         Aplique o método por até <strong>7 dias</strong>. Se você sentir que não é para você,
         se não enxergar valor ou simplesmente se arrepender, devolvemos <strong>100% do seu dinheiro</strong>.
         Sem perguntas, sem burocracia, sem vergonha.
@@ -424,10 +440,10 @@
     </div>
   </section>
 
-  <!-- OFERTA FINAL (PREÇO CENTRALIZADO) -->
-  <section class="py-16 px-4 bg-gradient-to-br from-purple-900 to-pink-900 text-white">
+  <!-- OFERTA FINAL -->
+  <section id="oferta" class="py-16 px-4 bg-gradient-to-br from-purple-900 to-pink-900 text-white">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6 animate-pop">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 animate-pop">
         Quanto vale parar de sofrer sozinha por alguém que você ama?
       </h2>
 
@@ -439,7 +455,7 @@
 
       <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-8 animate-pop" style="animation-delay: 0.2s;">
 
-        <!-- BLOCO DE PREÇO CENTRALIZADO -->
+        <!-- PREÇO CENTRALIZADO + ARGUMENTO DE VALOR -->
         <div class="mb-6">
           <p class="text-lg opacity-75">De:</p>
           <p id="original-price" class="price-strike text-3xl font-bold text-red-300 mt-1">R$ 197</p>
@@ -447,18 +463,20 @@
           <p class="text-lg opacity-75 mt-6">Por apenas hoje:</p>
           <p id="current-price" class="text-5xl font-bold text-yellow-300 mt-1">R$ 29,90</p>
 
-          <p class="text-sm opacity-80 mt-3">
-            Menos do que o valor de um delivery que acaba em uma noite,<br>
-            por um método que pode mudar a forma como ele olha para você.
+          <p class="text-sm opacity-90 mt-4 leading-relaxed">
+            Menos de <strong>R$ 1 por dia</strong> para deixar de ser ignorada pelo homem que você ama.<br>
+            Você gasta mais do que isso em um delivery que acaba em algumas horas. Aqui, você investe em algo
+            que pode mudar a forma como ele olha para você.
           </p>
         </div>
 
-        <button
-          id="final-cta"
-          class="pulse-button bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-xl px-12 py-6 rounded-full shadow-luxury hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full max-w-md mx-auto"
-        >
-          💖 QUERO APLICAR O MÉTODO AINDA HOJE
-        </button>
+        <a id="offer-cta-link" href="#" class="inline-block w-full max-w-md mx-auto">
+          <button
+            id="final-cta"
+            class="pulse-button bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-xl px-12 py-6 rounded-full shadow-luxury hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full">
+            💖 QUERO APLICAR O MÉTODO AINDA HOJE
+          </button>
+        </a>
 
         <p class="text-sm opacity-75 mt-4">
           🔒 Pagamento 100% seguro • Acesso imediato e discreto • Você recebe no e-mail em poucos minutos
@@ -475,7 +493,7 @@
   <footer class="bg-gray-900 text-white py-8 px-4">
     <div class="max-w-4xl mx-auto text-center">
       <p class="text-gray-400 text-sm">
-        © 2025 Método da Mulher que Ele Nunca Esquece. Todos os direitos reservados.
+        © 2024 Método da Mulher que Ele Nunca Esquece. Todos os direitos reservados.
       </p>
       <p class="text-gray-500 text-xs mt-2">
         Este produto não garante resultados. Os resultados podem variar de pessoa para pessoa.
@@ -483,20 +501,110 @@
     </div>
   </footer>
 
+  <!-- CTA FLUTUANTE MOBILE -->
+  <div id="floating-cta" class="fixed bottom-0 inset-x-0 bg-white border-t border-pink-200 shadow-soft py-3 px-4 flex items-center justify-between md:hidden z-40">
+    <div class="text-xs text-gray-700 leading-snug pr-3">
+      <span class="font-semibold text-pink-700 block">Ainda pensando?</span>
+      <span>Você pode começar agora e decidir depois. A garantia é de 7 dias.</span>
+    </div>
+    <a id="floating-cta-link" href="#" class="shrink-0">
+      <button class="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-soft">
+        QUERO O MÉTODO
+      </button>
+    </a>
+  </div>
+
+  <!-- POP-UP DE SAÍDA -->
+  <div id="exit-popup" class="fixed inset-0 hidden items-center justify-center overlay-exit z-50">
+    <div class="bg-white rounded-3xl max-w-md w-11/12 p-6 shadow-luxury text-center relative">
+      <button id="close-exit-popup" class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-xl">
+        ×
+      </button>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">
+        Antes de sair…
+      </h3>
+      <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+        Decisões tomadas na dor costumam dar errado.
+        Mas essa pode ser a decisão que te devolve o amor, o respeito e o olhar que você sente falta hoje.
+      </p>
+      <p class="text-sm text-gray-700 mb-5">
+        Quer mesmo sair sem ao menos conhecer o método que pode virar esse jogo?
+      </p>
+      <a id="exit-popup-cta-link" href="#" class="inline-block w-full mb-3">
+        <button class="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold py-3 rounded-full shadow-soft">
+          💖 Quero ver o Método antes de sair
+        </button>
+      </a>
+      <button id="exit-popup-continue" class="text-xs text-gray-500 hover:text-gray-700 underline">
+        Não, quero sair mesmo assim
+      </button>
+    </div>
+  </div>
+
   <script>
-    const PRODUCT_LINK = "LINK_DO_SEU_PRODUTO_AQUI";
+    // COLOCA AQUI O LINK DO PRODUTO
+    const PRODUCT_LINK = "LINK_DO_SEU_PRODUTO_AQUI"; // <-- TROCAR POR URL REAL
 
     document.addEventListener("DOMContentLoaded", function () {
+      // Setar hrefs
+      const links = [
+        document.getElementById("hero-cta-link"),
+        document.getElementById("offer-cta-link"),
+        document.getElementById("floating-cta-link"),
+        document.getElementById("exit-popup-cta-link"),
+      ].filter(Boolean);
+
+      links.forEach(link => {
+        link.href = PRODUCT_LINK;
+      });
+
       const buttons = [
         document.getElementById("cta-button"),
-        document.getElementById("final-cta")
+        document.getElementById("final-cta"),
       ].filter(Boolean);
 
       buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
           window.location.href = PRODUCT_LINK;
         });
       });
+
+      // Pop-up de saída (desktop)
+      let exitPopupShown = false;
+      const exitPopup = document.getElementById("exit-popup");
+      const closeExitPopup = document.getElementById("close-exit-popup");
+      const exitContinue = document.getElementById("exit-popup-continue");
+
+      function showExitPopup() {
+        if (exitPopupShown) return;
+        exitPopupShown = true;
+        if (exitPopup) {
+          exitPopup.classList.remove("hidden");
+          exitPopup.classList.add("flex");
+        }
+      }
+
+      // Apenas em telas maiores (desktop)
+      if (window.innerWidth > 768) {
+        document.addEventListener("mouseout", function (e) {
+          if (e.clientY < 10) {
+            showExitPopup();
+          }
+        });
+      }
+
+      if (closeExitPopup) {
+        closeExitPopup.addEventListener("click", () => {
+          exitPopup.classList.add("hidden");
+        });
+      }
+
+      if (exitContinue) {
+        exitContinue.addEventListener("click", () => {
+          exitPopup.classList.add("hidden");
+        });
+      }
     });
   </script>
 
